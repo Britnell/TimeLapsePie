@@ -11,9 +11,12 @@ var RaspiCam = require("raspicam");
 //var RaspiCam = require("../lib/raspicam");
 
 	//var camera = new RaspiCam({ opts });
+var USB_path = "../USBstick";
+var LOCAL_path = "./public"
+
 var camera = new RaspiCam({
 mode: "photo",
-output: "./public/cam.jpg",
+output: USB_path +"/cam.jpg",
 encoding: "jpg",
 timeout: 0 // take the picture immediately
 });
