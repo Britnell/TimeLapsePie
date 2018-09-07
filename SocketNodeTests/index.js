@@ -52,7 +52,7 @@ imgSpace.on('connection', (socket)=>{
 	//process.stdout.write(`waiting ${currentTime/1000} seconds`);		// repeating printout
 	//console.log("Interval : Swap!");
 	socket.emit('swap', 'NOW');
-	}, 4000);
+	}, 200);
 
 		  	// * part 1 static
 		  //socket.emit('message', { tommy:'Hey how are ya' });
