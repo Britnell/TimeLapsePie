@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chatter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS demo from -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+      form { padding: 20px; position: fixed; bottom: 0; width: 100%; padding-right: 50px;}
+      #messages { list-style-type: none; margin: 0; padding: 0; width: 100%;}
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee;} 
+    </style>
+  </head>
+
+  <body>
+    <!--  Jumbotron-->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">WElcome here</h1>
+        <p class="lead">Test Text next nest Test </p>
+      </div> 
+    </div>
+
+    <img id="RTimg" src="/canvas3.png" style=" width:800px; height:500px; ">
+    <!--Bootstrap -->
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Socketing-->
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+          
+          const socket = io('/img');
+
+            // 
+          socket.on('connect', ()=>{
+            // emit to EVERYBODY
+            //socket.emit('message', '* * user connected * *');
+            socket.emit('message', 'Hi its picture frame, im ready');
+          });
+
+            // Socket / Receive
+          socket.on('message', (data)=>{
+            console.log(`socket: ${data}`);
+          });
+
+          var img_a = "/canvas3.png";
+          var img_b = "/canvas4.png";
+          var img_src = img_a;
+
+          socket.on('swap', (data)=>{
+            console.log(`socket:  $swap : ${data}`);
+            if(img_src==img_a){
+              img_src = img_b;
+            }
+            else{
+              img_src = img_a;
+            }
+            $('#RTimg').attr("src",img_src);
+          });
+
+
+          
+
+      </script>
+  </body>
+
+
+</html>

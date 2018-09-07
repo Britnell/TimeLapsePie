@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test Page</title>
+  </head>
+  <body>
+    <h1>Test Page</h1>
+    <p>Some text here</p>
+    
+    Local Img:<br>
+    <img src="cam.jpg" width="800" height="600">
+    <br><br>
+    
+    <br><br>
+    <input id="read_b" type="button" value="Read()">
+    
+
+
+    
+  </body>
+  <script type="text/javascript">
+      
+
+      var read_button = document.getElementById('read_b');
+
+      read_button.addEventListener('click', button_func);
+      function button_func() {
+        console.log("STOP");
+      }
+
+    </script>
+</html>
+

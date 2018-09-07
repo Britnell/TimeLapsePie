@@ -1,0 +1,24 @@
+{
+  "name": "lynda_socket",
+  "version": "1.0.0",
+  "description": "lynda learning project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js --exec babel-node -e js",
+    "test": "set DEBUG=* & nodemon ./index.js --exec babel-node -e js"
+  },
+  "author": "Thomas BRitnell",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.18.4",
+    "paper": "^0.11.5",
+    "path": "^0.12.7",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
